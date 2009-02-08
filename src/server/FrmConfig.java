@@ -116,7 +116,7 @@ public class FrmConfig implements ActionListener  {
 			int y;
 			jFrameConfig = new JFrame();
 			jFrameConfig.setSize(new Dimension(405, 589));
-			jFrameConfig.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/editorpane_obj.gif")));
+			jFrameConfig.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("img" + File.separator + "editorpane_obj.gif")));
 			jFrameConfig.setResizable(false);
 			jFrameConfig.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			jFrameConfig.setContentPane(getJDesktopPane());
@@ -418,7 +418,7 @@ public class FrmConfig implements ActionListener  {
 		if (jButtonAceptar == null) {
 			jButtonAceptar = new JButton();
 			jButtonAceptar.setBounds(new Rectangle(92, 518, 101, 26));
-			jButtonAceptar.setIcon(new ImageIcon(getClass().getResource("/img/complete_task.gif")));
+			jButtonAceptar.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "complete_task.gif")));
 			jButtonAceptar.setText("Aceptar");
 			jButtonAceptar.addActionListener(this);
 		}
@@ -434,7 +434,7 @@ public class FrmConfig implements ActionListener  {
 		if (jButtonCancelar == null) {
 			jButtonCancelar = new JButton();
 			jButtonCancelar.setBounds(new Rectangle(202, 518, 111, 26));
-			jButtonCancelar.setIcon(new ImageIcon(getClass().getResource("/img/error_tsk.gif")));
+			jButtonCancelar.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "error_tsk.gif")));
 			jButtonCancelar.setText("Cancelar");
 			jButtonCancelar.addActionListener(this);
 		}

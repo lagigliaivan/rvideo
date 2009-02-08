@@ -36,8 +36,7 @@ import javax.sdp.SdpException;
 import javax.sdp.SdpFactory;
 import javax.sdp.SdpParseException;
 import javax.sdp.SessionDescription;
-import javax.sip.DialogTerminatedEvent;
-import javax.sip.IOExceptionEvent;
+
 import javax.sip.InvalidArgumentException;
 import javax.sip.ListeningPoint;
 import javax.sip.ObjectInUseException;
@@ -50,7 +49,7 @@ import javax.sip.SipListener;
 import javax.sip.SipProvider;
 import javax.sip.SipStack;
 import javax.sip.TimeoutEvent;
-import javax.sip.TransactionTerminatedEvent;
+
 import javax.sip.TransportNotSupportedException;
 import javax.sip.address.Address;
 import javax.sip.address.AddressFactory;
@@ -665,7 +664,7 @@ public class SipManager implements SipListener	{
 				case 404:
 					throw new ExcGeneric("404 - Fallo la registracion con el servidor proxy");
 				case 200:
-					if(!threadRefresh .isAlive()){
+					if(threadRefresh == null || !threadRefresh.isAlive()){
 						threadRefresh = new ThrBindRefresher(getAllocator(),indexConexion,this);
 						threadRefresh.start();
 					}
@@ -1207,7 +1206,7 @@ public class SipManager implements SipListener	{
 	 */
 	public void stunDetection() throws ExcGeneric{
 		
-		StunDiscoveryTest discoveryTest = new StunDiscoveryTest(getStunServer(),getStunServerPort() );
+/*		StunDiscoveryTest discoveryTest = new StunDiscoveryTest(getStunServer(),getStunServerPort() );
 		StunDiscoveryInfo discoveryInfo = null;
 		
 		try {
@@ -1223,10 +1222,10 @@ public class SipManager implements SipListener	{
 			}
 			throw new ExcGeneric("Error: al detectar ip publica  - configurando ip local " + getStackAddress());
 		}
-		/*
+		
 		 * Hacemos esto por las dudas, seria en el caso que NO se produjera ninguna excepcion pero...
 		 * discoveryTest retornara null 
-		 */
+		 
 		if(discoveryInfo.getPublicIP() == null){
 			setIpPublicAddress(getStackAddress());
 			try {
@@ -1240,7 +1239,8 @@ public class SipManager implements SipListener	{
 			setStunAddress(discoveryInfo.getPublicIP());
 			setIpPublicAddress(getStunAddress().getHostAddress());
 		}
-		
+		*/
+		setIpPublicAddress(getStackAddress());		
 }
 	
 	
@@ -1581,24 +1581,6 @@ public class SipManager implements SipListener	{
 		this.threadGroup = threadGroup;
 	}
 
-	@Override
-	public void processDialogTerminated(DialogTerminatedEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void processIOException(IOExceptionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void processTransactionTerminated(TransactionTerminatedEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }
 
 /**

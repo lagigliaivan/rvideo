@@ -86,23 +86,24 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 * Este metodo se ejecuta cada vez que se presiona el boton jButtonAceptar o cada 
 	 * vez que se elija algunos de los menues de la barra de menu o popup.
 	 */
-	public void actionPerformed(ActionEvent e){
-
-		fileXmlCamaras  = System.getProperty("user.dir") + File.separator + getJTextFieldNombreUsuario().getText() +File.separator  + "listaCamaras.xml";
+	public void actionPerformed(ActionEvent event){
+	
+		//TODO avoid file names hardcoding.  In this case is listaCamaras.xml.
+		fileXmlCamaras  = System.getProperty("user.dir") + File.separator + getJTextFieldNombreUsuario().getText() + File.separator  + "listaCamaras.xml";
 
 		/**
 		 *	Click en el boton conectarse 
 		 */
 
-		if(e.getActionCommand().compareTo("Conectar") == 0){
+		if(event.getActionCommand().compareTo("Conectar") == 0){
 			validateAndConnect();
 			return;
 		}
-		else if(e.getActionCommand().compareTo("Configurar") == 0){
+		else if(event.getActionCommand().compareTo("Configurar") == 0){
 			FrmConfig ventanaConfig = new FrmConfig();
 			ventanaConfig.getJFrameConfig().setVisible(true);
 		} //Menu Camara de la barra de menu y del pop Up
-		else if(e.getActionCommand().compareTo("Agregar camara") == 0 || e.getActionCommand().compareTo( "Nueva camara") == 0)
+		else if(event.getActionCommand().compareTo("Agregar camara") == 0 || event.getActionCommand().compareTo( "Nueva camara") == 0)
 		{
 
 			String newCam = "";
@@ -154,7 +155,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 
 		}
 		//Menu Eliminar
-		else if(e.getActionCommand().compareTo("Eliminar Camara") == 0)
+		else if(event.getActionCommand().compareTo("Eliminar Camara") == 0)
 		{
 
 			Vector camaras = xmlParser.getCamaras(fileXmlCamaras);
@@ -188,7 +189,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 			return;
 		}
 		//Menu contextual (popUp) eliminar
-		else if(e.getActionCommand().compareTo("Eliminar") == 0)
+		else if(event.getActionCommand().compareTo("Eliminar") == 0)
 		{
 
 			JList lista = jPanelListaCamaras.getJListCamarasRaw();
@@ -225,7 +226,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 			showList();
 			return;
 		}
-		else if(e.getActionCommand().compareTo("Ver Propiedades") == 0)
+		else if(event.getActionCommand().compareTo("Ver Propiedades") == 0)
 		{
 			JList lista = jPanelListaCamaras.getJListCamarasRaw();
 			ListItem item = (ListItem)lista.getModel().getElementAt(lista.getSelectedIndex());
@@ -233,7 +234,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 			String cam = xmlParser.getCamProperties(fileXmlCamaras,propertiesCam);
 			JOptionPane.showMessageDialog(null,"propiedades: " + cam);
 		}
-		else if(e.getActionCommand().compareTo("Modif Propiedades") == 0 )
+		else if(event.getActionCommand().compareTo("Modif Propiedades") == 0 )
 		{
 			JList lista = jPanelListaCamaras.getJListCamarasRaw();
 			ListItem item = (ListItem)lista.getModel().getElementAt(lista.getSelectedIndex());
@@ -246,14 +247,14 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 			descrip.setParent(this);
 			descrip.getJDialogDesc().setVisible(true);
 		}
-		else if(e.getActionCommand().compareTo("Refrescar lista") == 0 )
+		else if(event.getActionCommand().compareTo("Refrescar lista") == 0 )
 		{
 			showList();
 		}
-		else if(e.getActionCommand().compareTo("Acerca de") == 0 ) {
+		else if(event.getActionCommand().compareTo("Acerca de") == 0 ) {
 			FrmAbout about = new FrmAbout();
 			about.getJFrameAbout().setVisible(true);
-		}else if(e.getActionCommand().compareTo("Salir") == 0) {
+		}else if(event.getActionCommand().compareTo("Salir") == 0) {
 			int result = JOptionPane.showConfirmDialog(null,"Seguro que desea salir?",
 					"Confirmar",JOptionPane.YES_NO_OPTION);
 			if( result == 1){
@@ -273,7 +274,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 		if (jButtonAceptar == null) {
 			jButtonAceptar = new JButton();
 			jButtonAceptar.setText("Conectar");
-			jButtonAceptar.setIcon(new ImageIcon(getClass().getResource("/img/plugin_obj.gif")));
+			jButtonAceptar.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "plugin_obj.gif")));
 			jButtonAceptar.setToolTipText("Click aqui para autenticarse con el registrar SIP");
 			/**
 			 * Cuando se presione este boton, la clase que tendra el metodo que 
@@ -293,7 +294,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 		if (jButtonConfigurar == null) {
 			jButtonConfigurar = new JButton();
 			jButtonConfigurar.setText("Configurar");
-			jButtonConfigurar.setIcon(new ImageIcon(getClass().getResource("/img/editorpane_obj.gif")));
+			jButtonConfigurar.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "editorpane_obj.gif")));
 			jButtonConfigurar.addActionListener(this);
 		}
 		return jButtonConfigurar;
@@ -342,7 +343,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 			jFrameVentanaPrincipal.setMinimumSize(new java.awt.Dimension(262,409));
 			jFrameVentanaPrincipal.setResizable(false);
 			jFrameVentanaPrincipal.setPreferredSize(new java.awt.Dimension(262,409));
-			jFrameVentanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/system.gif")));
+			jFrameVentanaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("img" + File.separator + "system.gif")));
 			jFrameVentanaPrincipal.setContentPane(getJContentPaneVentanaPrincipal());
 			jFrameVentanaPrincipal.setJMenuBar(getJMenuBarVentanaPrincipal());
 			jFrameVentanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

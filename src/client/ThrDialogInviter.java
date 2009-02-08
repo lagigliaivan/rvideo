@@ -5,6 +5,7 @@
  */
 package client;
 import java.awt.BorderLayout;
+import java.io.File;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -59,7 +60,7 @@ public class ThrDialogInviter extends Thread {
 			jLabel = new JLabel();
 			jLabel.setHorizontalAlignment(SwingConstants.CENTER);
 			jLabel.setText("Conectando....");
-			jLabel.setIcon(new ImageIcon(getClass().getResource("/img/camara.gif")));
+			jLabel.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "camara.gif")));
 			jContentPaneDialog = new JPanel();
 			jContentPaneDialog.setLayout(new BorderLayout());
 			jContentPaneDialog.add(jLabel, java.awt.BorderLayout.CENTER);

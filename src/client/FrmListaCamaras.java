@@ -152,7 +152,7 @@ public class FrmListaCamaras implements MouseListener,ActionListener {
 		if (jButtonVisualizar == null) {
 			jButtonVisualizar = new JButton();
 			jButtonVisualizar.setText("Visualizar");
-			jButtonVisualizar.setIcon(new ImageIcon(getClass().getResource("/img/run.gif")));
+			jButtonVisualizar.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "run.gif")));
 			jButtonVisualizar.addActionListener(this);
 		}
 		return jButtonVisualizar;
@@ -188,12 +188,12 @@ public class FrmListaCamaras implements MouseListener,ActionListener {
 			try {
 				getSipManager().sendMessageRequest(sipCon);
 				li = new ListItem(Color.white, cam);
-				li.setIcon(new ImageIcon(getClass().getResource("/img/connected.gif")));
+				li.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "connected.gif")));
  
 		        			
 			} catch (ExcGeneric e) {
 				li = new ListItem(Color.LIGHT_GRAY, cam);
-				li.setIcon(new ImageIcon(getClass().getResource("/img/delete.gif")));
+				li.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "delete.gif")));
 		    }
 			model.addElement(li);
 		}

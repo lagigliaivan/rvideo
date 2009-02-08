@@ -3,6 +3,7 @@ package client;
 
 import java.awt.BorderLayout;
 import java.awt.GraphicsEnvironment;
+import java.io.File;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -81,7 +82,7 @@ public class ThrDialogRegister extends Thread{
 			jLabelConexion = new JLabel();
 			jLabelConexion.setHorizontalAlignment(SwingConstants.CENTER);
 			jLabelConexion.setText("Conecting....");
-			jLabelConexion.setIcon(new ImageIcon(getClass().getResource("/img/flechaVerde.gif")));
+			jLabelConexion.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "flechaVerde.gif")));
 			jContentPaneDialog = new JPanel();
 			jContentPaneDialog.setLayout(new BorderLayout());
 			jContentPaneDialog.add(jLabelConexion, java.awt.BorderLayout.CENTER);

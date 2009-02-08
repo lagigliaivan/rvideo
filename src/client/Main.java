@@ -1,8 +1,8 @@
 package client;
 /**
- * Punto de entrada para la aplicacion
- * Instancia un objeto ventanaPrincipal y lo muestra
- * 
+ * First point of application execution.
+ * A main window object is created and showed in the screen.
+ *  
  * @author ivan
  * @version 0.1 
  */

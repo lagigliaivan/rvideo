@@ -1,0 +1,5 @@
+- Add a checkbox in the configuration form in order to select whether or not using the stun process.
+- Change the icon style, they are really ugly.
+- Implement i18n.
+- In the login form, remember the last login user.
+
