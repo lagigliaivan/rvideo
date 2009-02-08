@@ -4,7 +4,7 @@
  */
 
 
-package server.src;
+package server;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.spec.AlgorithmParameterSpec;

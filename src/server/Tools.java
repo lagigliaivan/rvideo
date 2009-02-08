@@ -1,4 +1,4 @@
-package servidor;
+package server;
 
 
 import java.awt.DisplayMode;

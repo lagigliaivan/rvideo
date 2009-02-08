@@ -8,7 +8,7 @@
  * TODO avoid hardcoding config file. It should be able to pass it as a parameter.
  */
 
-package server.src;
+package server;
 import java.io.File;
 import java.net.UnknownHostException;
 
@@ -19,15 +19,15 @@ import org.apache.log4j.PropertyConfigurator;
 public class Main {
 
 	//objeto que se utiliza para leer configuracion de un archivo xml
-	private XmlConfigParser parserConf	= null;
-	private final String fileName		= System.getProperty("user.dir") + File.separator + "config.xml";
-	private SipManager sipManager		= null;
-	private int sipConexionRegisterIndex	= 0;
-	private final String STACK_PATH		= "gov.nist";
+	private XmlConfigParser parserConf      = null;
+	private final String fileName		    = System.getProperty("user.dir") + File.separator + "config.xml";
+	private SipManager sipManager		    = null;
+	private int sipConexionRegisterIndex    = 0;
+	private final String STACK_PATH		    = "gov.nist";
 	private final String STACK_PATH_NAME	= "gov.nist";
-	private int reintento 			= 0;
-	private Logger logger			= Logger.getLogger(this.getClass().getName());
-        private final MAX_NUMBER_RETRY		= 2;
+	private int reintento			        = 0;
+	private Logger logger                   = Logger.getLogger(this.getClass().getName());
+    private final int MAX_NUMBER_RETRY      = 2;
 	
 	public static void main(String[] args) {
 
@@ -36,7 +36,7 @@ public class Main {
 	}
 
 	private void start(){
-
+		
 		setParserConf(new XmlConfigParser(fileName));
 		/*TODO avoid using break into a while loop. 
 		  there should be a variable into the parse class which
@@ -50,15 +50,15 @@ public class Main {
 				showFrmConfig(e.getMessage());
 				reintento++;
 			}
-                }
+		}
                 
-                if(reintento < MAX_NUMBER_RETRY) {
-                        PropertyConfigurator.configure(getClass().getResource("/config/log4j.properties"));	
-		        register();
-                }else {
-                       logger.error("No se encontro archivo config.xml");
-                       System.exit(1);
-                }
+		if(reintento < MAX_NUMBER_RETRY) {
+			PropertyConfigurator.configure(getClass().getResource("/config/log4j.properties"));	
+			register();
+        }else {
+            logger.error("No se encontro archivo config.xml");
+            System.exit(1);
+        }
                 
 	}
 	

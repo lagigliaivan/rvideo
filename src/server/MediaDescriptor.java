@@ -1,4 +1,4 @@
-package server.src;
+package server;
 import java.util.Vector;
 
 public class MediaDescriptor {

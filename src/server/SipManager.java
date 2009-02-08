@@ -1,4 +1,4 @@
-package server.src;
+package server;
 /**
  * En este archivo se guardan tres clases, la clase SipManager,
  * la clase SipManagerAllocator, y el hilo que refresca la asociacion en el 
@@ -36,6 +36,8 @@ import javax.sdp.SdpException;
 import javax.sdp.SdpFactory;
 import javax.sdp.SdpParseException;
 import javax.sdp.SessionDescription;
+import javax.sip.DialogTerminatedEvent;
+import javax.sip.IOExceptionEvent;
 import javax.sip.InvalidArgumentException;
 import javax.sip.ListeningPoint;
 import javax.sip.ObjectInUseException;
@@ -48,6 +50,7 @@ import javax.sip.SipListener;
 import javax.sip.SipProvider;
 import javax.sip.SipStack;
 import javax.sip.TimeoutEvent;
+import javax.sip.TransactionTerminatedEvent;
 import javax.sip.TransportNotSupportedException;
 import javax.sip.address.Address;
 import javax.sip.address.AddressFactory;
@@ -282,7 +285,7 @@ public class SipManager implements SipListener	{
 	{		
 		/**
 		 *	direccion IP donde se abrira la conexion 
-		 *	a esta direccion se enlazar� el SipStack
+		 *	a esta direccion se enlazar el SipStack
 		 *  Compruebo que la direccion a setear no sea la loop, si esto es asi,
 		 *  lanzo una excepcion
 		 */		
@@ -618,7 +621,7 @@ public class SipManager implements SipListener	{
 					break;
 				case 404:
                                     throw new ExcGeneric("404 - Fallo la registracion con el servidor proxy");
-                                case 487:
+				case 487:
                                     throw new ExcGeneric("487 - Accion Cancelada");
                                     
 				case 200:
@@ -1550,6 +1553,24 @@ public void sendMessageRequest(int indexConexion)throws ExcGeneric{
 
 	public void setThrKeepAliver(ThrKeepAliver thrKeepAliver) {
 		this.thrKeepAliver = thrKeepAliver;
+	}
+
+	@Override
+	public void processDialogTerminated(DialogTerminatedEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void processIOException(IOExceptionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void processTransactionTerminated(TransactionTerminatedEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
    	

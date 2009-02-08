@@ -1,4 +1,4 @@
-package server.src;
+package server;
 /*
  * @(#)RtpTransmiter.java	1.4 01/03/13
  *

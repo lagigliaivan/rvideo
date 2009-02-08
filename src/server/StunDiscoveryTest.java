@@ -1,4 +1,4 @@
-package servidor;
+package server;
 //package de.javawi.jstun.test;
 
 import java.net.*;

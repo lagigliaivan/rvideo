@@ -36,6 +36,8 @@ import javax.sdp.SdpException;
 import javax.sdp.SdpFactory;
 import javax.sdp.SdpParseException;
 import javax.sdp.SessionDescription;
+import javax.sip.DialogTerminatedEvent;
+import javax.sip.IOExceptionEvent;
 import javax.sip.InvalidArgumentException;
 import javax.sip.ListeningPoint;
 import javax.sip.ObjectInUseException;
@@ -48,6 +50,7 @@ import javax.sip.SipListener;
 import javax.sip.SipProvider;
 import javax.sip.SipStack;
 import javax.sip.TimeoutEvent;
+import javax.sip.TransactionTerminatedEvent;
 import javax.sip.TransportNotSupportedException;
 import javax.sip.address.Address;
 import javax.sip.address.AddressFactory;
@@ -1576,6 +1579,24 @@ public class SipManager implements SipListener	{
 
 	public void setThreadGroup(ThreadGroup threadGroup) {
 		this.threadGroup = threadGroup;
+	}
+
+	@Override
+	public void processDialogTerminated(DialogTerminatedEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void processIOException(IOExceptionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void processTransactionTerminated(TransactionTerminatedEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

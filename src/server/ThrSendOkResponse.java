@@ -1,4 +1,4 @@
-package servidor;
+package server;
 import javax.sip.RequestEvent;
 
 public class ThrSendOkResponse extends Thread{
