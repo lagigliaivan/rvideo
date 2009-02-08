@@ -1,4 +1,4 @@
-package consola;
+package client;
 /**
  * Esta clase intenta mostrar una ventana muy simple
  * para configurar la conexion a distintos servidores

@@ -1,4 +1,4 @@
-package consola;
+package client;
 /*
  * @(#)RtpTransmiter.java	1.4 01/03/13
  *

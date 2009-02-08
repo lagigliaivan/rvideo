@@ -1,4 +1,4 @@
-package consola;
+package client;
 import java.io.File;
 import java.net.DatagramSocket;
 import java.net.InetAddress;

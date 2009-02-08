@@ -1,4 +1,4 @@
-package consola;
+package client;
 /**
  * Punto de entrada para la aplicacion
  * Instancia un objeto ventanaPrincipal y lo muestra

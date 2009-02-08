@@ -3,7 +3,7 @@
  * @author ivan
  * @version 1.0 05 Setiembre 2006
  */
-package consola;
+package client;
 import java.awt.BorderLayout;
 
 import javax.swing.ImageIcon;

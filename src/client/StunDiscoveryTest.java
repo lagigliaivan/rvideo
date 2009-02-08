@@ -1,4 +1,4 @@
-package consola;
+package client;
 //package de.javawi.jstun.test;
 
 import java.net.*;

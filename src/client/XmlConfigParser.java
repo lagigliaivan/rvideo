@@ -3,7 +3,7 @@
  * se escpecifican diferentes datos para el correcto funcionamiento.
  * Esta clase utiliza un api diferente a la que utiliza la clase XmlCamParser
  */
-package consola;
+package client;
 
 import java.io.IOException;
 import java.util.Iterator;

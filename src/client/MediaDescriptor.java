@@ -1,4 +1,4 @@
-package consola;
+package client;
 import java.util.Vector;
 
 public class MediaDescriptor {

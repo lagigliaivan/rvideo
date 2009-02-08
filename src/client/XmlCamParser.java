@@ -1,4 +1,4 @@
-package consola;
+package client;
 import java.io.IOException;
 import java.util.Vector;
 

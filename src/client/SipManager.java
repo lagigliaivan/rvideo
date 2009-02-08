@@ -1,4 +1,4 @@
-package consola;
+package client;
 /**
  * En este archivo se guardan tres clases, la clase SipManager,
  * la clase SipManagerAllocator, y el hilo que refresca la asociacion en el 

@@ -1,4 +1,4 @@
-package consola;
+package client;
 /**
  * Esta clase es la ventana principal que contendra diferentes objetos.
  * Esta ventana es creada por la fc. main, y muestra por ej las text de loguin y pass

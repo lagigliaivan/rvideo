@@ -8,7 +8,7 @@
  * 
  */
 
-package consola;
+package client;
 import javax.swing.JOptionPane;
 
 

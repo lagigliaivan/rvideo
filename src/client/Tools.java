@@ -1,4 +1,4 @@
-package consola;
+package client;
 
 import java.awt.DisplayMode;
 import java.awt.GraphicsDevice;
