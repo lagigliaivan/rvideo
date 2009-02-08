@@ -1,0 +1,14 @@
+<config>
+	<stunserver>
+		<address>stun.xten.net</address>
+		<port>3478</port>
+	</stunserver>
+	<localhost>
+		<address>192.168.1.168</address>
+		<port>5060</port>
+	</localhost>
+	<sipproxy>
+		<address>proxy01.sipphone.com</address>
+		<port>5060</port>
+	</sipproxy>
+</config>

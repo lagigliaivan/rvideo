@@ -1,0 +1,57 @@
+sitio:  fonosip.com
+
+dato1 : 
+
+usuario: webcam1
+pass: just691p
+
+dato2:
+usuario: webcam2
+pass: just691p
+
+
+dato3:
+usuario: webcam3
+pass: just691p
+
+
+datos generales
+
+Enabled: 	Yes
+Display Name: 	John Smith
+Username: 	83400 (the number you chose at registration)
+Authorization User: 	83400 (the number you chose at registration)
+Password: 	your password
+Domain/Realm: 	fonosip.com
+SIP Proxy: 	fonosip.com
+
+
+CONSOLA
+17476502212@proxy01.sipphone.com
+574225
+
+MI CASA
+17476502276@proxy01.sipphone.com
+840319
+
+CASA DIEGO
+17476548663@proxy01.sipphone.com
+360165
+
+CYBER
+17470285526@proxy01.sipphone.com
+665991
+
+FACULTAD
+17470290993@proxy01.sipphone.com
+281401
+
+nuevo
+17470292700@proxy01.sipphone.com
+819300
+
+17470292699@proxy01.sipphone.com
+392444
+
+stun01.sipphone.com
+3478
