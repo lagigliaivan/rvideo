@@ -24,6 +24,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.UnknownHostException;
+import java.util.Hashtable;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
@@ -45,26 +46,26 @@ import org.apache.log4j.Logger;
 
 public class FrmPrincipal implements ActionListener,KeyListener{
 
+	private final String PROTOCOL = "udp";
+	private final String STACK_PATH = "gov.nist";
+	private final String STACK_PATH_NAME = "gov.nist";
+	
+	private int x = 0;
+	private int y = 0;
+	
 	private ThrDialogRegister dialog = null;
 	private String fileXmlCamaras = null;
-	private JButton jButtonAceptar = null;
+	private JButton jButtonConnect = null;
 	private JButton jButtonConfigurar = null;
 	private JPanel jContentPaneVentanaPrincipal = null;
 	private JFrame jFrameVentanaPrincipal = null;
-
 	private JLabel jLabelPass = null;
-
-
 	private JLabel jLabelUserName = null;
 	private JMenu jMenuAyuda = null;
 	private JMenuBar jMenuBarVentanaPrincipal = null;
 	private JMenu jMenuCamaras = null;
-
 	private JMenuItem jMenuItemAbout = null;
-
-
 	private JMenuItem jMenuItemAgregarCamara = null;
-
 	private JMenuItem jMenuItemEliminar = null;
 	private JMenuItem jMenuItemSalir = null;
 	private JPanel jPanelAceptar = null;
@@ -72,14 +73,9 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	private JPanel jPanelNameAndPass = null;
 	private JPasswordField jPasswordFieldPass = null;
 	private JTextField jTextFieldNombreUsuario = null;
-	private final String PROTOCOL = "udp";
 	private SipManager sipManager = null;
-	private final String STACK_PATH = "gov.nist";
-	private final String STACK_PATH_NAME = "gov.nist";
 	private XmlCamParser xmlParser = new XmlCamParser();
 	private XmlConfigParser xmlConfigParser = null;
-	int x = 0;
-	int y = 0;
 	private JMenuItem jMenuItemRefresh = null;
 	public Logger logger = Logger.getLogger("FrmPrincipal");
 	/**
@@ -94,7 +90,11 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 		/**
 		 *	Click en el boton conectarse 
 		 */
-
+		
+		Hashtable<Object, > hash;
+		
+		
+		
 		if(event.getActionCommand().compareTo("Conectar") == 0){
 			validateAndConnect();
 			return;
@@ -103,7 +103,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 			FrmConfig ventanaConfig = new FrmConfig();
 			ventanaConfig.getJFrameConfig().setVisible(true);
 		} //Menu Camara de la barra de menu y del pop Up
-		else if(event.getActionCommand().compareTo("Agregar camara") == 0 || event.getActionCommand().compareTo( "Nueva camara") == 0)
+		else if(event.getActionCommand().compareTo("Agregar camara") == 0 ||	 event.getActionCommand().compareTo( "Nueva camara") == 0)
 		{
 
 			String newCam = "";
@@ -271,18 +271,18 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 * @return javax.swing.JButton	
 	 */
 	private JButton getJButtonAceptar() {
-		if (jButtonAceptar == null) {
-			jButtonAceptar = new JButton();
-			jButtonAceptar.setText("Conectar");
-			jButtonAceptar.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "plugin_obj.gif")));
-			jButtonAceptar.setToolTipText("Click aqui para autenticarse con el registrar SIP");
+		if (jButtonConnect == null) {
+			jButtonConnect = new JButton();
+			jButtonConnect.setText("Conectar");
+			jButtonConnect.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "plugin_obj.gif")));
+			jButtonConnect.setToolTipText("Click aqui para autenticarse con el registrar SIP");
 			/**
 			 * Cuando se presione este boton, la clase que tendra el metodo que 
 			 * atender dicha accion sera FrmPrincipal
 			 */
-			jButtonAceptar.addActionListener(this);
+			jButtonConnect.addActionListener(this);
 		}
-		return jButtonAceptar;
+		return jButtonConnect;
 	}
 
 	/**
