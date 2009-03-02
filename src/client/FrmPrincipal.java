@@ -24,7 +24,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.UnknownHostException;
-import java.util.Hashtable;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
@@ -90,10 +89,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 		/**
 		 *	Click en el boton conectarse 
 		 */
-		
-		Hashtable<Object, > hash;
-		
-		
+		((ActionButton)(event.getSource())).performAction(this);
 		
 		if(event.getActionCommand().compareTo("Conectar") == 0){
 			validateAndConnect();
@@ -272,7 +268,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 */
 	private JButton getJButtonAceptar() {
 		if (jButtonConnect == null) {
-			jButtonConnect = new JButton();
+			jButtonConnect = new JButtonConnect();
 			jButtonConnect.setText("Conectar");
 			jButtonConnect.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "plugin_obj.gif")));
 			jButtonConnect.setToolTipText("Click aqui para autenticarse con el registrar SIP");
