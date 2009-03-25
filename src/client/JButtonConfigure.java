@@ -2,7 +2,7 @@ package client;
 
 import javax.swing.JButton;
 
-public class JButtonConnect extends JButton implements ActionButton{
+public class JButtonConfigure extends JButton implements ActionButton {
 
 	private static final long serialVersionUID = 1L;
 
@@ -10,9 +10,8 @@ public class JButtonConnect extends JButton implements ActionButton{
 	public int performAction(Object data) throws Exception{
 		
 		FrmPrincipal frmPrincipal = (FrmPrincipal)data;
-		
-		frmPrincipal.validateAndConnect();
+		FrmConfig ventanaConfig = new FrmConfig();
+		ventanaConfig.getJFrameConfig().setVisible(true);
 		return 0;
 	}
-
 }

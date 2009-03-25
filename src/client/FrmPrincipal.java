@@ -45,10 +45,6 @@ import org.apache.log4j.Logger;
 
 public class FrmPrincipal implements ActionListener,KeyListener{
 
-	private final String PROTOCOL = "udp";
-	private final String STACK_PATH = "gov.nist";
-	private final String STACK_PATH_NAME = "gov.nist";
-	
 	private int x = 0;
 	private int y = 0;
 	
@@ -74,12 +70,27 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	private JTextField jTextFieldNombreUsuario = null;
 	private SipManager sipManager = null;
 	private XmlCamParser xmlParser = new XmlCamParser();
+	
+	/**
+	 * @return the xmlParser
+	 */
+	public XmlCamParser getXmlParser() {
+		return xmlParser;
+	}
+
+	/**
+	 * @param xmlParser the xmlParser to set
+	 */
+	public void setXmlParser(XmlCamParser xmlParser) {
+		this.xmlParser = xmlParser;
+	}
+
 	private XmlConfigParser xmlConfigParser = null;
 	private JMenuItem jMenuItemRefresh = null;
 	public Logger logger = Logger.getLogger("FrmPrincipal");
+	
 	/**
-	 * Este metodo se ejecuta cada vez que se presiona el boton jButtonAceptar o cada 
-	 * vez que se elija algunos de los menues de la barra de menu o popup.
+	 * This method is executed every time the button jButtonAcetpar is pressed or some of the menus in the bar or popup is selected.
 	 */
 	public void actionPerformed(ActionEvent event){
 	
@@ -87,11 +98,16 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 		fileXmlCamaras  = System.getProperty("user.dir") + File.separator + getJTextFieldNombreUsuario().getText() + File.separator  + "listaCamaras.xml";
 
 		/**
-		 *	Click en el boton conectarse 
+		 *	Click on the "Conectarse" button 
 		 */
-		((ActionButton)(event.getSource())).performAction(this);
+		try {
+			((ActionButton)(event.getSource())).performAction(this);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		if(event.getActionCommand().compareTo("Conectar") == 0){
+		/*if(event.getActionCommand().compareTo("Conectar") == 0){
 			validateAndConnect();
 			return;
 		}
@@ -122,10 +138,10 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 				}	
 			}
 
-			/**
+			*//**
 			 * Abre el archivo que contiene la lista de camaras
 			 * y le agrega la camara nueva
-			 */
+			 *//*
 			Vector camaras = xmlParser.getCamaras(fileXmlCamaras);
 
 			String dataFile = "<camaras>\n";
@@ -143,9 +159,9 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 			dataFile +="</camaras>";
 
 			writeFileXml(fileXmlCamaras, dataFile);
-			/**
+			*//**
 			 * refresca la lista
-			 */
+			 *//*
 			showList();
 			return;
 
@@ -258,7 +274,36 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 			}
 			System.exit(0);
 		} 
+		*/
 
+	}
+
+	/**
+	 * @return the jPanelListaCamaras
+	 */
+	public FrmListaCamaras getJPanelListaCamaras() {
+		return jPanelListaCamaras;
+	}
+
+	/**
+	 * @param panelListaCamaras the jPanelListaCamaras to set
+	 */
+	public void setJPanelListaCamaras(FrmListaCamaras panelListaCamaras) {
+		jPanelListaCamaras = panelListaCamaras;
+	}
+
+	/**
+	 * @return the fileXmlCamaras
+	 */
+	public String getFileXmlCamaras() {
+		return fileXmlCamaras;
+	}
+
+	/**
+	 * @param fileXmlCamaras the fileXmlCamaras to set
+	 */
+	public void setFileXmlCamaras(String fileXmlCamaras) {
+		this.fileXmlCamaras = fileXmlCamaras;
 	}
 
 	/**
@@ -305,7 +350,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 *  @return javax.swing.JPanel	
 	 */
 
-	private JPanel getJContentPaneVentanaPrincipal() {
+	public JPanel getJContentPaneVentanaPrincipal() {
 		if (jContentPaneVentanaPrincipal == null) {
 			jContentPaneVentanaPrincipal = new JPanel();
 			jContentPaneVentanaPrincipal.setLayout(new BorderLayout());
@@ -617,7 +662,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 		if(sipManager == null){
 
 			try {	
-				sipManager = new SipManager(PROTOCOL,getXmlConfigParser().getLocalHostPort(),STACK_PATH_NAME,STACK_PATH);
+				sipManager = new SipManager(Constants.PROTOCOL,getXmlConfigParser().getLocalHostPort(),Constants.STACK_PATH_NAME, Constants.STACK_PATH);
 			}
 			catch(UnknownHostException unknownHostExc){
 				Loguer.showMessageError("No se pudo habrir tener acceso a la red");

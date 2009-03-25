@@ -62,43 +62,26 @@ public class FrmConfig implements ActionListener  {
 	private JLabel jLabelTituloProxySip = null;
 	private JButton jButtonAceptar = null;
 	private JButton jButtonCancelar = null;
-	private static String STUN_ADDRESS = "stun.xten.net";
-	private static final int STUN_PORT = 5060;
-	private static final int LOCALHOST_PORT = 5061;
-	private static final String LOCALHOST_ADDRESS = "localhost";
-	private static final String SIPPROXY_ADDRESS = "proxy01.sipphone.com";  //  @jve:decl-index=0:
-	private static final int SIPPROXY_PORT = 5060;
-	private static final String FILE_CONFIG = System.getProperty("user.dir") + File.separator + "config.xml";
 	
 	private JComboBox jComboBoxLocalHostAddress = null;
 	private Enumeration <NetworkInterface> interfaces = null;
-	private XmlConfigParser xmlConfigParser = new XmlConfigParser(FILE_CONFIG);
+	private XmlConfigParser xmlConfigParser = new XmlConfigParser(Constants.FILE_CONFIG);
 	private JLabel jLabelDevCaptura = null;
 	private JComboBox jComboBoxDispositivoCap = null;
 	private Compartido compartido;
 
 	private JLabel jLabel = null;
-
 	private JLabel jLabel1 = null;
-
 	private JTextField jTextFieldNombreUsuario = null;
-
 	private JPasswordField jPasswordFieldPassword = null;
-
 	private JLabel jLabelDatosUsuario = null;
-
 	private JLabel jLabelDispositivo = null;
-
 	private JLabel jLabelCompresionVideo = null;
-
 	private JLabel jLabelTipoCompresion = null;
-
 	private JComboBox jComboBoxTipoCompresion = null;
-
 	private JComboBox jComboBoxFactorCompresion = null;
-	
 	private Logger logger = Logger.getLogger(this.getClass().getName());
-	
+
 	public FrmConfig(Compartido compartido){
 		super();
 		this.compartido = compartido;
@@ -529,32 +512,32 @@ public class FrmConfig implements ActionListener  {
 		int sipProxyPort;
 		
 		if(getJTextFieldStunServerAddress().getText().compareTo("") == 0 ){
-			stunServerAddress = STUN_ADDRESS;
+			stunServerAddress = Constants.STUN_ADDRESS;
 		}else{
 			stunServerAddress = getJTextFieldStunServerAddress().getText();
 		}
 		if(getJTextFieldStunServerPort().getText().compareTo("") == 0 ){
-			stunServerPort = STUN_PORT;
+			stunServerPort = Constants.STUN_PORT;
 		}else{
 			stunServerPort = Integer.parseInt(getJTextFieldStunServerPort().getText());
 		}
 		if(getJTextFieldLocalHostPort().getText().compareTo("") == 0 ){
-			localHostPort = LOCALHOST_PORT;
+			localHostPort =Constants. LOCALHOST_PORT;
 		}else{
 			localHostPort = Integer.parseInt(getJTextFieldLocalHostPort().getText());
 		}
 		if(((InetAddress)(getJComboBoxLocalHostAddress().getSelectedItem())).getHostAddress().compareTo("") == 0 ){
-			localHostAddress = LOCALHOST_ADDRESS;
+			localHostAddress = Constants.LOCALHOST_ADDRESS;
 		}else{
 			localHostAddress = ((InetAddress)getJComboBoxLocalHostAddress().getSelectedItem()).getHostAddress();
 		}
 		if(getJTextFieldSipProxyAddress().getText().compareTo("") == 0 ){
-			sipProxyAddress = SIPPROXY_ADDRESS;
+			sipProxyAddress = Constants.SIPPROXY_ADDRESS;
 		}else{
 			sipProxyAddress = getJTextFieldSipProxyAddress().getText();
 		}
 		if(getJTextFieldSipProxyAddress().getText().compareTo("") == 0 ){
-			sipProxyPort = SIPPROXY_PORT;
+			sipProxyPort = Constants.SIPPROXY_PORT;
 		}else{
 			sipProxyPort = Integer.parseInt(getJTextFieldSipProxyPort().getText());
 		}
@@ -607,7 +590,7 @@ public class FrmConfig implements ActionListener  {
 		
 		xml +="</config>";
 		
-		writeFile(FILE_CONFIG,xml);
+		writeFile(Constants.FILE_CONFIG,xml);
 		
 		return xml;
 	}
