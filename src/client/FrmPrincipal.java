@@ -24,17 +24,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.UnknownHostException;
-import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -94,7 +91,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 */
 	public void actionPerformed(ActionEvent event){
 	
-		//TODO avoid file names hardcoding.  In this case is listaCamaras.xml.
+		//TODO avoid hardcoded file names.  In this case listaCamaras.xml.
 		fileXmlCamaras  = System.getProperty("user.dir") + File.separator + getJTextFieldNombreUsuario().getText() + File.separator  + "listaCamaras.xml";
 
 		/**
@@ -593,7 +590,6 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	public SipManager getSipManager() {
 		return sipManager;
 	}
-
 	public void keyPressed(KeyEvent key) {}
 
 	public void keyReleased(KeyEvent key) {}
@@ -662,7 +658,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 		if(sipManager == null){
 
 			try {	
-				sipManager = new SipManager(Constants.PROTOCOL,getXmlConfigParser().getLocalHostPort(),Constants.STACK_PATH_NAME, Constants.STACK_PATH);
+				sipManager = new SipManager(Constants.PROTOCOL,getXmlConfigParser().getLocalHostPort(), Constants.STACK_PATH_NAME, Constants.STACK_PATH);
 			}
 			catch(UnknownHostException unknownHostExc){
 				Loguer.showMessageError("No se pudo habrir tener acceso a la red");
@@ -695,9 +691,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 
 	public void writeFileXml(String file,String data){
 		try { 
-
 			PrintWriter write = new PrintWriter(new BufferedWriter(new FileWriter(file)));
-
 			write.println(data);
 			write.close();
 		} catch (EOFException ex) { 

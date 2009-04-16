@@ -17,7 +17,7 @@ public class JButtonAddCamera extends JButton implements ActionButton {
 
 		while(newCam != null && newCam.compareTo("")  ==  0 ){
 
-			newCam = JOptionPane.showInputDialog(null,"Ingrese Camara","Completar",JOptionPane.QUESTION_MESSAGE);
+			newCam = JOptionPane.showInputDialog(null,"Ingrese Camara", "Completar", JOptionPane.QUESTION_MESSAGE);
 
 			if(newCam == null){
 				throw new Exception("One camera name is needed to be added");
