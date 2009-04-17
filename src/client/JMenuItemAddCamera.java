@@ -2,10 +2,10 @@ package client;
 
 import java.util.Vector;
 
-import javax.swing.JButton;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-public class JButtonAddCamera extends JButton implements ActionButton {
+public class JMenuItemAddCamera extends JMenuItem implements ActionButton {
 
 	private static final long serialVersionUID = 1L;
 

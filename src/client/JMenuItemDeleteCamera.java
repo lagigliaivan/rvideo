@@ -2,10 +2,12 @@ package client;
 
 import java.util.Vector;
 
-import javax.swing.JButton;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-public class JButtonDeleteCamera extends JButton implements ActionButton{
+public class JMenuItemDeleteCamera extends JMenuItem implements ActionButton{
+
+	private static final long serialVersionUID = 2051389488787189769L;
 
 	public int performAction(Object data) throws Exception {
 		

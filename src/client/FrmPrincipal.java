@@ -47,8 +47,8 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	
 	private ThrDialogRegister dialog = null;
 	private String fileXmlCamaras = null;
-	private JButton jButtonConnect = null;
-	private JButton jButtonConfigurar = null;
+	private JButtonConnect jButtonConnect = null;
+	private JButtonConfigure jButtonConfigurar = null;
 	private JPanel jContentPaneVentanaPrincipal = null;
 	private JFrame jFrameVentanaPrincipal = null;
 	private JLabel jLabelPass = null;
@@ -57,8 +57,8 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	private JMenuBar jMenuBarVentanaPrincipal = null;
 	private JMenu jMenuCamaras = null;
 	private JMenuItem jMenuItemAbout = null;
-	private JMenuItem jMenuItemAgregarCamara = null;
-	private JMenuItem jMenuItemEliminar = null;
+	private JMenuItemAddCamera jMenuItemAgregarCamara = null;
+	private JMenuItemDeleteCamera jMenuItemEliminar = null;
 	private JMenuItem jMenuItemSalir = null;
 	private JPanel jPanelAceptar = null;
 	private FrmListaCamaras jPanelListaCamaras = null;
@@ -103,176 +103,6 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		/*if(event.getActionCommand().compareTo("Conectar") == 0){
-			validateAndConnect();
-			return;
-		}
-		else if(event.getActionCommand().compareTo("Configurar") == 0){
-			FrmConfig ventanaConfig = new FrmConfig();
-			ventanaConfig.getJFrameConfig().setVisible(true);
-		} //Menu Camara de la barra de menu y del pop Up
-		else if(event.getActionCommand().compareTo("Agregar camara") == 0 ||	 event.getActionCommand().compareTo( "Nueva camara") == 0)
-		{
-
-			String newCam = "";
-
-			while(newCam != null && newCam.compareTo("")  ==  0 ){
-
-				newCam = JOptionPane.showInputDialog(null,"Ingrese Camara","Completar",JOptionPane.QUESTION_MESSAGE);
-
-				if(newCam == null){
-					return;
-				}
-
-				if(newCam.compareTo("") == 0 || !newCam.contains("@")||newCam.endsWith("@")|| newCam.startsWith("@")  )
-				{
-					JOptionPane.showMessageDialog(this.getJContentPaneVentanaPrincipal(),
-							"El nombre de la camara debe tener la forma nombre@dominio",
-							"info",
-							JOptionPane.INFORMATION_MESSAGE);
-					newCam = "";
-				}	
-			}
-
-			*//**
-			 * Abre el archivo que contiene la lista de camaras
-			 * y le agrega la camara nueva
-			 *//*
-			Vector camaras = xmlParser.getCamaras(fileXmlCamaras);
-
-			String dataFile = "<camaras>\n";
-
-			for(int i = 0 ; i < camaras.size();i++){
-				dataFile += "<camara>\n";
-				dataFile += "<name>"+(String)camaras.get(i)+"</name>\n"; 
-				dataFile += "<desc></desc>\n";
-				dataFile += "</camara>\n";
-			}
-			dataFile += "<camara>\n";
-			dataFile += "<name>"+ newCam +"</name>\n";
-			dataFile += "<desc></desc>\n";
-			dataFile += "</camara>\n";
-			dataFile +="</camaras>";
-
-			writeFileXml(fileXmlCamaras, dataFile);
-			*//**
-			 * refresca la lista
-			 *//*
-			showList();
-			return;
-
-		}
-		//Menu Eliminar
-		else if(event.getActionCommand().compareTo("Eliminar Camara") == 0)
-		{
-
-			Vector camaras = xmlParser.getCamaras(fileXmlCamaras);
-			String possibleValues[] = new String[camaras.size()];
-			camaras.copyInto(possibleValues);
-
-			Object deletedCam = JOptionPane.showInputDialog(null,
-					"Seleccione la camara a eliminar", "Input",
-					JOptionPane.INFORMATION_MESSAGE, null,
-					possibleValues,
-					possibleValues[0]);
-
-
-			if(deletedCam==null){
-				return;
-			}
-			String dataFile = "<camaras>\n";
-
-			for(int i = 0 ; i < camaras.size();i++){
-
-				if(((String)camaras.get(i)).compareTo((String)deletedCam)!=0){
-					dataFile +="<camara>\n";
-					dataFile += "<name>"+(String)camaras.get(i)+"</name>\n";
-					dataFile += "<desc></desc>\n";
-					dataFile +="</camara>\n";
-				}
-			}
-			dataFile += "</camaras>"; 
-			writeFileXml(fileXmlCamaras, dataFile);
-			showList();
-			return;
-		}
-		//Menu contextual (popUp) eliminar
-		else if(event.getActionCommand().compareTo("Eliminar") == 0)
-		{
-
-			JList lista = jPanelListaCamaras.getJListCamarasRaw();
-			ListItem item = (ListItem)lista.getModel().getElementAt(lista.getSelectedIndex());
-			String deletedCam = item.getValue();
-
-			Object[] options = { "SI", "NO" };
-			int eleccion = JOptionPane.showOptionDialog(null, 
-					"Seguro que desea eliminar a " + deletedCam, "Warning",
-					JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
-					null, options, options[0]);
-			if(eleccion == 1){
-				return;
-			}
-			Vector camaras = xmlParser.getCamaras(fileXmlCamaras);
-
-			if(deletedCam==null || deletedCam.compareTo("")== 0){
-				return;
-			}
-			String dataFile = "<camaras>\n";
-
-			for(int i = 0 ; i < camaras.size();i++){
-
-				if(((String)camaras.get(i)).compareTo((String)deletedCam)!=0){
-					dataFile +="<camara>\n";
-					dataFile += "<name>"+(String)camaras.get(i)+"</name>\n";
-					dataFile += "<desc></desc>\n";
-					dataFile +="</camara>\n";
-				}
-
-			}
-			dataFile += "</camaras>\n"; 
-			writeFileXml(fileXmlCamaras, dataFile);
-			showList();
-			return;
-		}
-		else if(event.getActionCommand().compareTo("Ver Propiedades") == 0)
-		{
-			JList lista = jPanelListaCamaras.getJListCamarasRaw();
-			ListItem item = (ListItem)lista.getModel().getElementAt(lista.getSelectedIndex());
-			String propertiesCam = item.getValue();
-			String cam = xmlParser.getCamProperties(fileXmlCamaras,propertiesCam);
-			JOptionPane.showMessageDialog(null,"propiedades: " + cam);
-		}
-		else if(event.getActionCommand().compareTo("Modif Propiedades") == 0 )
-		{
-			JList lista = jPanelListaCamaras.getJListCamarasRaw();
-			ListItem item = (ListItem)lista.getModel().getElementAt(lista.getSelectedIndex());
-			String propertiesCam = item.getValue();
-			String cam = xmlParser.getCamProperties(fileXmlCamaras,propertiesCam);
-
-			DlgGetDescrip descrip = new DlgGetDescrip(cam,propertiesCam);
-			descrip.setXmlParser(xmlParser);
-			descrip.setFileXml(fileXmlCamaras);
-			descrip.setParent(this);
-			descrip.getJDialogDesc().setVisible(true);
-		}
-		else if(event.getActionCommand().compareTo("Refrescar lista") == 0 )
-		{
-			showList();
-		}
-		else if(event.getActionCommand().compareTo("Acerca de") == 0 ) {
-			FrmAbout about = new FrmAbout();
-			about.getJFrameAbout().setVisible(true);
-		}else if(event.getActionCommand().compareTo("Salir") == 0) {
-			int result = JOptionPane.showConfirmDialog(null,"Seguro que desea salir?",
-					"Confirmar",JOptionPane.YES_NO_OPTION);
-			if( result == 1){
-				return;
-			}
-			System.exit(0);
-		} 
-		*/
-
 	}
 
 	/**
@@ -330,7 +160,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 */
 	private JButton getJButtonConfigurar() {
 		if (jButtonConfigurar == null) {
-			jButtonConfigurar = new JButton();
+			jButtonConfigurar = new JButtonConfigure();
 			jButtonConfigurar.setText("Configurar");
 			jButtonConfigurar.setIcon(new ImageIcon(getClass().getResource("img" + File.separator + "editorpane_obj.gif")));
 			jButtonConfigurar.addActionListener(this);
@@ -460,7 +290,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 */
 	private JMenuItem getJMenuItemAgregarCamara() {
 		if (jMenuItemAgregarCamara == null) {
-			jMenuItemAgregarCamara = new JMenuItem();
+			jMenuItemAgregarCamara = new JMenuItemAddCamera();
 			jMenuItemAgregarCamara.setText("Agregar camara");
 			jMenuItemAgregarCamara.setFont(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12));
 			jMenuItemAgregarCamara.addActionListener(this);
@@ -475,7 +305,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 */
 	private JMenuItem getJMenuItemEliminar() {
 		if (jMenuItemEliminar == null) {
-			jMenuItemEliminar = new JMenuItem();
+			jMenuItemEliminar = new JMenuItemDeleteCamera();
 			jMenuItemEliminar.setText("Eliminar Camara");
 			jMenuItemEliminar.setFont(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12));
 			jMenuItemEliminar.addActionListener(this);
@@ -658,7 +488,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 		if(sipManager == null){
 
 			try {	
-				sipManager = new SipManager(Constants.PROTOCOL,getXmlConfigParser().getLocalHostPort(), Constants.STACK_PATH_NAME, Constants.STACK_PATH);
+				sipManager = new SipManager(Constants.PROTOCOL, getXmlConfigParser().getLocalHostPort(), Constants.STACK_PATH_NAME, Constants.STACK_PATH);
 			}
 			catch(UnknownHostException unknownHostExc){
 				Loguer.showMessageError("No se pudo habrir tener acceso a la red");
