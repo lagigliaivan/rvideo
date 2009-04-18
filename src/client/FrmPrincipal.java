@@ -56,10 +56,10 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	private JMenu jMenuAyuda = null;
 	private JMenuBar jMenuBarVentanaPrincipal = null;
 	private JMenu jMenuCamaras = null;
-	private JMenuItem jMenuItemAbout = null;
+	private JMenuItemAbout jMenuItemAbout = null;
 	private JMenuItemAddCamera jMenuItemAgregarCamara = null;
 	private JMenuItemDeleteCamera jMenuItemEliminar = null;
-	private JMenuItem jMenuItemSalir = null;
+	private JMenuItemExit jMenuItemSalir = null;
 	private JPanel jPanelAceptar = null;
 	private FrmListaCamaras jPanelListaCamaras = null;
 	private JPanel jPanelNameAndPass = null;
@@ -83,7 +83,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	}
 
 	private XmlConfigParser xmlConfigParser = null;
-	private JMenuItem jMenuItemRefresh = null;
+	private JMenuItemRefreshList jMenuItemRefresh = null;
 	public Logger logger = Logger.getLogger("FrmPrincipal");
 	
 	/**
@@ -274,7 +274,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 */
 	private JMenuItem getJMenuItemAbout() {
 		if (jMenuItemAbout == null) {
-			jMenuItemAbout = new JMenuItem();
+			jMenuItemAbout = new JMenuItemAbout();
 			jMenuItemAbout.setText("Acerca de");
 			jMenuItemAbout.setFont(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12));
 			jMenuItemAbout.addActionListener(this);
@@ -320,7 +320,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 */
 	private JMenuItem getJMenuItemSalir() {
 		if (jMenuItemSalir == null) {
-			jMenuItemSalir = new JMenuItem();
+			jMenuItemSalir = new JMenuItemExit();
 			jMenuItemSalir.setText("Salir");
 			jMenuItemSalir.setFont(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12));
 			jMenuItemSalir.addActionListener(this);
@@ -546,7 +546,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 */
 	private JMenuItem getJMenuItemRefresh() {
 		if (jMenuItemRefresh == null) {
-			jMenuItemRefresh = new JMenuItem();
+			jMenuItemRefresh = new JMenuItemRefreshList();
 			jMenuItemRefresh.setText("Refrescar lista");
 			jMenuItemRefresh.setFont(new Font("Dialog", Font.PLAIN, 12));
 			jMenuItemRefresh.addActionListener(this);

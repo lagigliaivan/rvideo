@@ -1,5 +1,7 @@
 - Add a checkbox in the configuration form in order to select whether or not using the stun process.
-- Change the icon style, they are really ugly.
+- Change the look and feel, some icons are old-fashion
 - Implement i18n.
-- In the login form, remember the last login user.
-
+- In the login form, try to remember the last login user.
+- The information about the version of the product must be in a file instead of hardcoded :(
+- When the button cancel is pressed in the add camera dialog an exception is returned. 
+  The exception have to be shown, only when the accept button is pressed without typing a camera name.

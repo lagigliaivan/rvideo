@@ -36,7 +36,7 @@ public class FrmAbout {
 	private JTextArea getJTextAreaAbout() {
 		if (jTextAreaAbout == null) {
 			jTextAreaAbout = new JTextArea();
-			jTextAreaAbout.setText("Visualizador de camaras -- Consola SIP  \n Version: 0.1 \n Compilacion: 16 Oct. 2006");
+			jTextAreaAbout.setText("Camera Viewer - SIP client  \n Version: 0.1 \n Release: 16 Oct. 2006");
 			jTextAreaAbout.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 			jTextAreaAbout.setEditable(false);
 			jTextAreaAbout.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
