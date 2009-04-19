@@ -58,7 +58,7 @@ public class FrmListaCamaras implements MouseListener,ActionListener {
 	private JPopupMenu jPopupMenuCamaras = null; 
 	private JMenuItemDeleteCameraPopup jMenuItemEliminarCamara = null;
 	private JMenuItemAddCamera jMenuItemAgregarCamara = null;
-	private JMenuItem jMenuItemPropiedadesCamara = null;
+	private JMenuItemCamProperties jMenuItemPropiedadesCamara = null;
 	private JMenuItem jMenuItemAgregarModifProps = null;
 	/**
 	 * This method initializes jPanelListaCamaras	
@@ -320,7 +320,7 @@ public class FrmListaCamaras implements MouseListener,ActionListener {
 	}
 	private JMenuItem getJMenuItemPropiedadesCamara() {
 		if (jMenuItemPropiedadesCamara == null) {
-			jMenuItemPropiedadesCamara = new JMenuItem();
+			jMenuItemPropiedadesCamara = new JMenuItemCamProperties();
 			jMenuItemPropiedadesCamara.setText("Ver Propiedades");
 			jMenuItemPropiedadesCamara.setFont(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12));
 			jMenuItemPropiedadesCamara.addActionListener(getParent());
@@ -329,7 +329,7 @@ public class FrmListaCamaras implements MouseListener,ActionListener {
 	}	
 	private JMenuItem getJMenuItemAgregarMidifProps() {
 		if (jMenuItemAgregarModifProps == null) {
-			jMenuItemAgregarModifProps = new JMenuItem();
+			jMenuItemAgregarModifProps = new JMenuItemModifProperties();
 			jMenuItemAgregarModifProps.setText("Modif Propiedades");
 			jMenuItemAgregarModifProps.setFont(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12));
 			jMenuItemAgregarModifProps.addActionListener(getParent());
