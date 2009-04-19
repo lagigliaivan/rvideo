@@ -56,8 +56,8 @@ public class FrmListaCamaras implements MouseListener,ActionListener {
 	GraphicsEnvironment gE = GraphicsEnvironment.getLocalGraphicsEnvironment();
 	private JScrollPane jScrollPaneListaCamaras = null;
 	private JPopupMenu jPopupMenuCamaras = null; 
-	private JMenuItem jMenuItemEliminarCamara = null;
-	private JMenuItem jMenuItemAgregarCamara = null;
+	private JMenuItemDeleteCameraPopup jMenuItemEliminarCamara = null;
+	private JMenuItemAddCamera jMenuItemAgregarCamara = null;
 	private JMenuItem jMenuItemPropiedadesCamara = null;
 	private JMenuItem jMenuItemAgregarModifProps = null;
 	/**
@@ -291,7 +291,7 @@ public class FrmListaCamaras implements MouseListener,ActionListener {
 	 */
 	private JMenuItem getJMenuItemEliminarCamara() {
 		if (jMenuItemEliminarCamara == null) {
-			jMenuItemEliminarCamara = new JMenuItem();
+			jMenuItemEliminarCamara = new JMenuItemDeleteCameraPopup();
 			jMenuItemEliminarCamara.setText("Eliminar");
 			jMenuItemEliminarCamara.setFont(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12));
 			jMenuItemEliminarCamara.addActionListener(getParent());
@@ -311,7 +311,7 @@ public class FrmListaCamaras implements MouseListener,ActionListener {
 	 */
 	private JMenuItem getJMenuItemAgregarCamara() {
 		if (jMenuItemAgregarCamara == null) {
-			jMenuItemAgregarCamara = new JMenuItem();
+			jMenuItemAgregarCamara = new JMenuItemAddCamera();
 			jMenuItemAgregarCamara.setText("Nueva camara");
 			jMenuItemAgregarCamara.setFont(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 12));
 			jMenuItemAgregarCamara.addActionListener(getParent());

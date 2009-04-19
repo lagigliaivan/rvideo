@@ -172,7 +172,7 @@ public class FrmPrincipal implements ActionListener,KeyListener{
 	 * Este metodo inicializa jContentPaneVentanaPrincipal
 	 * El jContentPaneVentanaPrincipal es el contenedor de jFrameVentanaPrincipal
 	 * que lleva dentro dos contenedores mas. Uno de ellos contiene dos text (user y pass)
-	 * y el otro contiene un bot�n de conexion
+	 * y el otro contiene un boton de conexion
 	 * 	
 	 *  @return javax.swing.JPanel	
 	 */
