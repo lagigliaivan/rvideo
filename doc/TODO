@@ -5,3 +5,4 @@
 - The information about the version of the product must be in a file instead of hardcoded :(
 - When the button cancel is pressed in the add camera dialog an exception is returned. 
   The exception have to be shown, only when the accept button is pressed without typing a camera name.
+- Try to separate the source code in modules according to their responsibilities. 

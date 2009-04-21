@@ -1,8 +1,12 @@
 I for improvement
 B for bug
 
+S for server
+C for client
+B for both
 
-
-I0001 - Change switchs or if by hashes
-	state: assigned
+BI0001: Change switchs or if by hashes
+	state: solved
 	assigned to: lagigliaivan@gmail.com
+
+BI0002: Decide  if STUN process is necessary, if so, add a checkbox in order to disable it when it is not necessary. 
