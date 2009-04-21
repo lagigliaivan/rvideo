@@ -260,7 +260,7 @@ ControllerListener{
 
 				ipAddr = InetAddress.getByName(ipAddress);
 				localAddr = new SessionAddress( getLocalAddres(),port);
-				//localAddr = new SessionAddress( InetAddress.getByName("192.168.1.168"),port);
+				//localAddr = new SessionAddress( InetAddress.getByName("10.0.0.4"),5060);
 
 				destAddr = new SessionAddress( ipAddr, destinationPort);
 

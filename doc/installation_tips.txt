@@ -1,0 +1,3 @@
+1 - write into the /etc/hosts file, the IP address you are using to send rtp data.
+2 - check out the location of the video which is sent by the client
+
